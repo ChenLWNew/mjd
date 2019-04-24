@@ -1,0 +1,62 @@
+/*reset css    =>重置样式*/
+*,
+::before,
+::after{  /*选中所有的元素和伪元素*/
+    margin: 0;
+    padding: 0;
+    /*针对移动端*/
+    box-sizing:border-box;   /*因为用的是百分比流式布局,防止宽度发生变化出现滚动条*/
+    -webkit-box-sizing:border-box; /*兼容移动端低版本浏览器(为什么不写全-moz-box-sizing呢？因为主流移动端浏览器都是基于webkit内核的)*/
+    -webkit-tap-highlight-color: transparent;/*点击高亮效果清除*/
+}
+body{
+    font-size: 14px;
+    color: #333;
+    font-family: "MicroSoft YaHei",sans-serif;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+input,textarea{
+    outline: none;
+    border:none;
+    resize:none;
+    /*清除移动端输入框特有的样式*/
+    -webkit-appearance: none;
+}
+
+
+/*common css   =>公用样式*/
+.f_left{
+    float: left;
+}
+.f_right{
+    float: right;
+}
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.m_l10{
+    margin-left: 10px;
+}
+.m_r10{
+    margin-right: 10px;
+}
+/*精灵图压缩防止失真
+class="icon_xxx"
+class="f_left icon_xxx m_l10"
+*/
+[class^="icon_"],[class*=" icon_"]{
+    background: url("../images/sprites.png") no-repeat;
+    background-size: 200px 200px;  /*压缩一倍*/
+}
